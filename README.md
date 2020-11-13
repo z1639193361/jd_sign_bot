@@ -5,9 +5,10 @@
 <p align="center">
     <img alt="Version" src="https://img.shields.io/badge/release-0.0.1-blue"/>
     <a href="https://github.com/ruicky">
-        <img alt="Author" src="https://img.shields.io/badge/author-ruicky-blueviolet"/>
+        <img alt="Author" src="https://img.shields.io/badge/author-fulade-blueviolet"/>
     </a>
 </p>
+
 
 # 京东自动签到
 功能：
@@ -17,3 +18,10 @@
 
 详情参考文章:[京东定时签到-GitHub 实现](https://ruicky.me/2020/06/05/jd-sign/)
 
+
+
+[原REPO支持GitHub Actions执行](https://github.com/ruicky/jd_sign_bot)
+
+#####特别感谢
+[@ruicky](https://github.com/ruicky)
+[@NobyDa](https://github.com/NobyDa)
