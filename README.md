@@ -1,6 +1,3 @@
-<p align="center">
-    <img src="https://cdn.jsdelivr.net/gh/ruicky/ruicky.github.io/2020/06/05/jd-sign/0.png">
-</p>
 
 <p align="center">
     <img src="https://cdn.jsdelivr.net/gh/Johnson8888/jd_sign_bot/0.png">
@@ -21,12 +18,12 @@
 2. 替换参数值
 3. 签到并发送通知
 
-详情参考文章:[京东定时签到-GitHub 实现](https://ruicky.me/2020/06/05/jd-sign/)
+详情参考文章:[京东定时签到-腾讯云 实现](http://fulade.me/tips-jd-auto-sigh-2.html)
 
 
 
 [原REPO支持GitHub Actions执行](https://github.com/ruicky/jd_sign_bot)
 
-#####特别感谢
+##### 特别感谢
 [@ruicky](https://github.com/ruicky)
 [@NobyDa](https://github.com/NobyDa)

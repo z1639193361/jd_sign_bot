@@ -6,26 +6,27 @@ const exec = require('child_process').execSync;
 const fs = require('fs');
 const rp = require('request-promise');
 const download = require('download');
-
+require('./JD_DailyBonus')
 // 公共变量
-const KEY = process.env.JD_COOKIE;
-const serverJ = process.env.PUSH_KEY;
-const DualKey = process.env.JD_COOKIE_2;
+const serverJ = '';
 
 
-async function downFile () {
-    // const url = 'https://cdn.jsdelivr.net/gh/NobyDa/Script@master/JD-DailyBonus/JD_DailyBonus.js'
-    const url = 'https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js';
-    await download(url, './');
-}
 
 async function changeFile () {
    let content = await fs.readFileSync('./JD_DailyBonus.js', 'utf8')
    content = content.replace(/var Key = ''/, `var Key = '${KEY}'`);
-   if (DualKey) {
-    content = content.replace(/var DualKey = ''/, `var DualKey = '${DualKey}'`);
-   }
    await fs.writeFileSync( './JD_DailyBonus.js', content, 'utf8')
+}
+
+
+async function checkKey() {
+  let content = await fs.readFileSync('./JD_DailyBonus.js', 'utf8')
+  /// 如果没出现  返回 -1
+  console.log(content);
+  if (content.indexOf(/var Key = ''/) != -1) {
+    return 1;
+  }
+  return 0;
 }
 
 async function sendNotify (text,desp) {
@@ -43,17 +44,7 @@ async function sendNotify (text,desp) {
 }
 
 async function start() {
-  if (!KEY) {
-    console.log('请填写 key 后在继续')
-    return
-  }
-  // 下载最新代码
-  await downFile();
-  console.log('下载代码完毕')
-  // 替换变量
-  await changeFile();
-  console.log('替换变量完毕')
-  // 执行
+
   await exec("node JD_DailyBonus.js >> result.txt");
   console.log('执行完毕')
 
@@ -70,6 +61,7 @@ async function start() {
 
     
     await sendNotify("" + ` ${res2} ` + ` ${res} ` + new Date().toLocaleDateString(), content);
+    console.log('发送通知');
   }
 }
 
